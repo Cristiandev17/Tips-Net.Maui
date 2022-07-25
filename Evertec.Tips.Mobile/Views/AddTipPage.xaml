@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Evertec.Tips.Mobile.Views.AddTipView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Evertec.Tips.Mobile.Controls.ContentViews"
+    xmlns:helpers="clr-namespace:Evertec.Tips.Mobile.Helpers;assembly=Evertec.Tips.Mobile"
+    xmlns:vm="clr-namespace:Evertec.Tips.Mobile.ViewModels"
+    Title="{Binding Title}">
+    <Grid>
+        <controls:LoaderView
+            IndicatorColor="{StaticResource Secondary}"
+            IsVisible="{Binding IsBusy}"
+            LoaderFontSize="20"
+            LoaderText="{helpers:TextFieldHelper strLoading}" />
+        <VerticalStackLayout Padding="{StaticResource PagePadding}" Spacing="25">
+            <DatePicker
+                Margin="50,80,50,0"
+                Date="{Binding Date}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                MinimumDate="{Binding MinDate}" />
+
+            <Picker
+                Title="{helpers:TextFieldHelper strTitlePickerAuthors}"
+                Margin="50,0"
+                HorizontalTextAlignment="Center"
+                ItemDisplayBinding="{Binding Name}"
+                ItemsSource="{Binding Authors}"
+                SelectedItem="{Binding SelectedAuthor}" />
+
+            <Entry
+                Margin="50,0"
+                HorizontalTextAlignment="Center"
+                Placeholder="{helpers:TextFieldHelper strTitle}"
+                Text="{Binding TitleTip}" />
+
+            <Editor
+                HeightRequest="200"
+                Placeholder="{helpers:TextFieldHelper strDescription}"
+                Text="{Binding Description}" />
+
+            <Button
+                Command="{Binding SaveCommand}"
+                Style="{StaticResource buttonGeneric}"
+                Text="{helpers:TextFieldHelper strSave}"
+                VerticalOptions="EndAndExpand" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Evertec.Tips.Mobile.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Evertec.Tips.Mobile.Helpers;assembly=Evertec.Tips.Mobile"
+    Title="LoginPage">
+    <ContentPage.Content>
+        <VerticalStackLayout
+            Padding="{StaticResource PagePadding}"
+            Spacing="25"
+            VerticalOptions="Center">
+            <VerticalStackLayout Spacing="10" VerticalOptions="Center">
+                <Label Text="{helpers:TextFieldHelper strUserName}" />
+                <Entry
+                    Margin="50,0"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding UserName}" />
+            </VerticalStackLayout>
+
+            <Button
+                Command="{Binding LoginCommand}"
+                Style="{StaticResource buttonGeneric}"
+                Text="{helpers:TextFieldHelper strLogin}"
+                VerticalOptions="EndAndExpand" />
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

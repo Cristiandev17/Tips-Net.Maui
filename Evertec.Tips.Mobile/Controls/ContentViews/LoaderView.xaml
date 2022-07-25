@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Evertec.Tips.Mobile.Controls.ContentViews.LoaderView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this">
+    <StackLayout
+        BackgroundColor="Black"
+        HorizontalOptions="FillAndExpand"
+        Opacity="0.5"
+        VerticalOptions="FillAndExpand">
+
+        <Frame
+            Margin="15"
+            BackgroundColor="White"
+            CornerRadius="10"
+            HasShadow="True"
+            HorizontalOptions="Center"
+            IsClippedToBounds="True"
+            VerticalOptions="CenterAndExpand">
+            <HorizontalStackLayout>
+                <ActivityIndicator
+                    IsRunning="True"
+                    VerticalOptions="Center"
+                    Color="{Binding Source={x:Reference this}, Path=IndicatorColor}" />
+                <Label
+                    FontSize="{Binding Source={x:Reference this}, Path=LoaderFontSize}"
+                    Text="{Binding Source={x:Reference this}, Path=LoaderText}"
+                    TextColor="{Binding Source={x:Reference this}, Path=IndicatorColor}"
+                    VerticalOptions="Center" />
+            </HorizontalStackLayout>
+        </Frame>
+
+
+
+    </StackLayout>
+</ContentView>

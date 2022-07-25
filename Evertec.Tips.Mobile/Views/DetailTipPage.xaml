@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Evertec.Tips.Mobile.Views.DetailTipView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Evertec.Tips.Mobile.Controls.ContentViews"
+    xmlns:helpers="clr-namespace:Evertec.Tips.Mobile.Helpers;assembly=Evertec.Tips.Mobile"
+    Title="{helpers:TextFieldHelper strDetail}">
+    <Grid>
+        <controls:LoaderView
+            IndicatorColor="{StaticResource Secondary}"
+            IsVisible="{Binding IsBusy}"
+            LoaderFontSize="50"
+            LoaderText="{helpers:TextFieldHelper strLoading}" />
+        <VerticalStackLayout Padding="{StaticResource PagePadding}" Spacing="15">
+
+            <DatePicker
+                Margin="50,80,50,0"
+                Date="{Binding Tip.CreationDate}"
+                FontSize="20"
+                HorizontalOptions="Center"
+                IsEnabled="False" />
+
+            <Entry
+                Margin="50,0"
+                HorizontalTextAlignment="Center"
+                IsEnabled="False"
+                Text="{Binding Author.Name}" />
+
+            <Entry
+                Margin="50,0"
+                HorizontalTextAlignment="Center"
+                IsEnabled="False"
+                Text="{Binding Tip.Title}" />
+
+            <Editor
+                HeightRequest="200"
+                IsEnabled="False"
+                Text="{Binding Tip.Description}" />
+
+            <Button
+                Command="{Binding EditTipCommand}"
+                Style="{StaticResource buttonGeneric}"
+                Text="{helpers:TextFieldHelper strEdit}"
+                VerticalOptions="EndAndExpand" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
